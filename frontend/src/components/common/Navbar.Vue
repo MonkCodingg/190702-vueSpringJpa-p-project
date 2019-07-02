@@ -17,11 +17,15 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-            </a>
+            <routerLink to="/"><a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+            </a></routerLink>
         </li>
-        
+        <li class="nav-item">
+        <router-link to="/group-detail">
+            <a class="nav-link" href="#">Group Detail </a>
+        </router-link>
+        </li>
 
         </ul>
         
