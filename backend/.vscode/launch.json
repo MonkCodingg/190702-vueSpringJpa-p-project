@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - WebApplication",
+            "request": "launch",
+            "mainClass": "com.woon.web.WebApplication",
+            "projectName": "web"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "mainClass": "com.woon.web.DemoApplication",
+            "projectName": "web"
+        }
+    ]
+}

@@ -3,10 +3,15 @@
   <!-- Content here -->
   <section id="table-head-options">
       <p></p>
-      <h2 class="section-heading mb-4">
-          Woon Group List
-      </h2>
-      <p class="text-right"><button type="button" class="btn btn-primary">Group Add</button></p>
+        <h2 class="section-heading mb-4">
+            Woon Group List
+        </h2>
+        <p class="text-right">
+            <router-link to="/group-insert">
+                <button type="button" class="btn btn-primary">Group Add</button>
+            </router-link>
+            <button @click="count">count</button>
+        </p>
       
     <table class="table table-hover">
         <thead class="black white-text">
@@ -40,16 +45,34 @@
 </div>    
 </template>
 <script>
-
+import axios from 'axios'
 export default {
     name: 'groupList',
+    
+    data: ()=>{
+        return {
+           context: 'http://localhost:9000/groups', 
+        }
+    },
     components: {
        
     },
-    data () {
-        return {
-
-        }
+    methods: {
+        
+        count(){
+            let headers = {
+                'Content-Type': 'application/json',
+                'Autorization': 'JWT fefege..'
+            }
+            axios.get(`${this.context}/count`)
+            .then(res=>{
+                alert(`SUCCESS: ${res.data}`)
+            })
+            .catch(e=>{
+                alert('ERROR')
+            })
+        },
+        
     }
 }
 </script>

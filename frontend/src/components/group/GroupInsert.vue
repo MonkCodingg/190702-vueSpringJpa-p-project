@@ -4,29 +4,25 @@
         
         <!-- Default form subscription -->
         <form class="text-center border border-light p-5">
-
             <p class="h4 mb-4">Add Group</p>
-
             <p>당신의 그룹을 만들어 보세요 </p>
-
-            
             <!-- table -->
             <table class="table">
                 
                 <tbody>
                     <tr>
                     <th scope="row">Group Name</th>
-                    <td>bit190603<input type="text"> </td>
+                    <td><input type="text" v-model="groupname"> </td>
                     </tr>
 
                     <tr>
                     <th scope="row">Group Introduce</th>
-                    <td>비트캠프 서울시 뉴딜 일자리 자바스크립트 프레임위크 과정 <textarea name="" id="" cols="50" rows="3"></textarea></td>
+                    <td><textarea cols="50" rows="3" v-model="groupintro"></textarea></td>
                     </tr>
 
                     <tr>
                     <th scope="row">Group Leader</th>
-                    <td>홍 길 동<input type="text"></td>
+                    <td><input type="text" v-model="groupleader"></td>
                     </tr>
 
                 </tbody>
@@ -45,18 +41,42 @@
 <script>
 import Footer from '@/components/common/Footer.vue'
 import Navbar from '@/components/common/Navbar.vue'
-
+import axios from 'axios'
 export default {
-    name: 'groupModify',
+    name: 'groupInsert',
     components: {
         Navbar,
         Footer,
         
     },
-    data () {
+    data: ()=>{
         return {
-
+            context: 'http://localhost:9000/groups',
+            groupname: '',
+            groupintro: '',
+            groupleader: '',
         }
+    },
+    methods: {
+
+        create(){
+            alert("create 함수 진입")
+            let data = {
+                groupname: this.groupname,
+                groupintro: this.groupintro,
+                groupleader: this.groupleader,
+            }
+            let headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'JWT fefege..'
+            }
+            axios.post(`${this.context}`, JSON.stringify(data), {headers: headers})
+            .then(res=>{
+                alert(`SUCCESS: ${res.date}`)
+            }).catch(e=>{
+                alert('ERROR')
+            })
+        },
     }    
 }
 </script>
