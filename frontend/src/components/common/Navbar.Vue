@@ -16,7 +16,7 @@
 
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
-            1234
+            
         <li class="nav-item active">
             <routerLink to="/"><a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>
@@ -25,6 +25,16 @@
         <li class="nav-item">
         <router-link to="/group-detail">
             <a class="nav-link" href="#">Group Detail </a>
+        </router-link>
+        </li>
+        <li class="nav-item">
+        <router-link to="/group-modify">
+            <a class="nav-link" href="#">Group Modify </a>
+        </router-link>
+        </li>
+        <li class="nav-item">
+        <router-link to="/group-insert">
+            <a class="nav-link" href="#">Group Insert </a>
         </router-link>
         </li>
 

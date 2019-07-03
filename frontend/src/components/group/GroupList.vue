@@ -6,6 +6,8 @@
       <h2 class="section-heading mb-4">
           Woon Group List
       </h2>
+      <p class="text-right"><button type="button" class="btn btn-primary">Group Add</button></p>
+      
     <table class="table table-hover">
         <thead class="black white-text">
             <tr>
@@ -30,6 +32,7 @@
             </tr>
             
         </tbody>
+        
     </table>
     
   </section>

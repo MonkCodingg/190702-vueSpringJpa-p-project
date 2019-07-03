@@ -10,6 +10,7 @@
 import Footer from '@/components/common/Footer.vue'
 import Navbar from '@/components/common/Navbar.vue'
 import GroupList from '@/components/group/GroupList.vue'
+
 export default {
   name: 'Home',
   components:{
