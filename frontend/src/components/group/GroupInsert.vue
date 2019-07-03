@@ -3,7 +3,7 @@
     <Navbar></Navbar>
         
         <!-- Default form subscription -->
-        <form class="text-center border border-light p-5">
+        <form class="text-center border border-light p-5" @submit.prevent="save">
             <p class="h4 mb-4">Add Group</p>
             <p>당신의 그룹을 만들어 보세요 </p>
             <!-- table -->
@@ -59,10 +59,10 @@ export default {
     },
     methods: {
 
-        create(){
+        save(){
             alert("create 함수 진입")
             let data = {
-                groupname: this.groupname,
+                groupname: this.groupname, //key : 현재 입력값
                 groupintro: this.groupintro,
                 groupleader: this.groupleader,
             }
@@ -72,7 +72,7 @@ export default {
             }
             axios.post(`${this.context}`, JSON.stringify(data), {headers: headers})
             .then(res=>{
-                alert(`SUCCESS: ${res.date}`)
+                alert(`SUCCESS: ${res.data.result}`)
             }).catch(e=>{
                 alert('ERROR')
             })

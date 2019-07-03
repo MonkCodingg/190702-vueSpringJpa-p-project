@@ -10,7 +10,7 @@
             <router-link to="/group-insert">
                 <button type="button" class="btn btn-primary">Group Add</button>
             </router-link>
-            <button @click="count">count</button>
+            
         </p>
       
     <table class="table table-hover">
@@ -51,7 +51,8 @@ export default {
     
     data: ()=>{
         return {
-           context: 'http://localhost:9000/groups', 
+           context: 'http://localhost:9000/groups',
+           grouplist: [] 
         }
     },
     components: {
@@ -73,6 +74,12 @@ export default {
             })
         },
         
+    },
+    created(){
+        axio.get(`${this.context}/list`).then((res)=>{
+            consol.log(res);
+            this.grouplist = res.data;
+        })
     }
 }
 </script>
