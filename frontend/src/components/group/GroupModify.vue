@@ -7,30 +7,29 @@
             <h2 class="section-heading mb-4">
                 Woon Group Modify
             </h2>
-            <table class="table">
+            <form class="text-center border border-light p-5">
+                <table class="table">
                 
-                <tbody>
-                    <tr>
-                    <th scope="row">Group Name</th>
-                    <td>bit190603</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                        <th scope="row">Group Name</th>
+                        <td>bit190603<input type="text"></td>
+                        </tr>
 
-                    <tr>
-                    <th scope="row">Group Introduce</th>
-                    <td>비트캠프 서울시 뉴딜 일자리 자바스크립트 프레임위크 과정</td>
-                    </tr>
+                        <tr>
+                        <th scope="row">Group Introduce</th>
+                        <td>비트캠프 서울시 뉴딜 일자리 자바스크립트 프레임위크 과정<textarea name="" id="" cols="50" rows="3"></textarea></td>
+                        </tr>
 
-                    <tr>
-                    <th scope="row">Group Leader</th>
-                    <td>홍 길 동</td>
-                    </tr>
+                        <tr>
+                        <th scope="row">Group Leader</th>
+                        <td>홍 길 동<input type="text"></td>
+                        </tr>
 
-                    <tr>
-                    <th scope="row">Group Member List</th>
-                    <td>abc@bit.com, ee@bit.com, camp@bitcamp.com, gogo@bitcamp.com</td>
-                    </tr>
-                </tbody>
-            </table>    
+                    </tbody>
+                </table>
+            </form>
+                
         </section>
         </div>
         <Footer></Footer>
