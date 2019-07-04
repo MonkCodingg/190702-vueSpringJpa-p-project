@@ -8,7 +8,7 @@
         </h2>
         <p class="text-right">
             <router-link to="/group-insert">
-                <button type="button" class="btn btn-primary">Group Add</button>
+                <button type="button" class="btn btn-primary">Add Group</button>
             </router-link>
             
         </p>
@@ -23,18 +23,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>bit190603</td>
-                <td>비트캠프 서울시 뉴딜 일자리 자바스크립트 프레임워크 과정</td>
-                <td>홍길동</td>
+            <tr v-for="item in list" v-bind:key="item.groupno"  @click="groupDetail(item)">
+                <th scope="row">{{item.groupno}}</th>
+                <td>{{item.groupname}}</td>
+                <td>{{item.groupintro}}</td>
+                <td>{{item.groupleader}}</td>
             </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>bit190603</td>
-                <td>비트캠프 서울시 뉴딜 일자리 자바스크립트 프레임워크 과정</td>
-                <td>홍길동</td>
-            </tr>
+            
             
         </tbody>
         
@@ -46,20 +41,27 @@
 </template>
 <script>
 import axios from 'axios'
+import {store} from '../../store'
 export default {
-    name: 'groupList',
     
-    data: ()=>{
+    data(){
         return {
            context: 'http://localhost:9000/groups',
-           grouplist: [] 
+           list:[] 
         }
     },
     components: {
        
     },
     methods: {
-        
+        groupDetail(item){
+            store.state.groupno = item.groupno;
+            store.state.groupname = item.groupname;
+            store.state.groupintro = item.groupintro;
+            store.state.groupleader = item.groupleader;
+            alert("groupDetail 함수 클릭 \n 그룹이름은 :"+store.state.groupname);
+            this.$router.push('/group-detail')
+        },
         count(){
             let headers = {
                 'Content-Type': 'application/json',
@@ -68,6 +70,7 @@ export default {
             axios.get(`${this.context}/count`)
             .then(res=>{
                 alert(`SUCCESS: ${res.data}`)
+                
             })
             .catch(e=>{
                 alert('ERROR')
@@ -75,10 +78,12 @@ export default {
         },
         
     },
-    created(){
-        axio.get(`${this.context}/list`).then((res)=>{
-            consol.log(res);
-            this.grouplist = res.data;
+
+    created:function(){
+        
+        axios.get(`${this.context}`).then((res)=>{
+            
+            this.list = res.data;
         })
     }
 }

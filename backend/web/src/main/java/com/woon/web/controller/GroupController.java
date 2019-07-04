@@ -10,14 +10,15 @@ import com.woon.web.domain.GroupDTO;
 import com.woon.web.entities.Group;
 import com.woon.web.repositories.GroupRepository;
 
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +34,6 @@ public class GroupController {
     @Autowired GroupDTO groupDTO;
     @Autowired ModelMapper modelMapper;
 
-
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
@@ -43,6 +43,7 @@ public class GroupController {
     public Long count() {
         return repo.count();
     }
+
     @PostMapping("")
     public HashMap<String, String> save(@RequestBody GroupDTO dto){
         System.out.println("save 그룹 생성 진입");
@@ -67,7 +68,7 @@ public class GroupController {
         GroupDTO dto = modelMapper.map(entity, GroupDTO.class);
         return dto;
     }
-    @GetMapping("/list")
+    @GetMapping("")
     public List<GroupDTO> findAll(){
         System.out.println("findAll 입장");
         Iterable<Group> entities = repo.findAll();
@@ -78,5 +79,22 @@ public class GroupController {
         }
         System.out.println(list);
         return list;
+    }
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id){
+        System.out.println("deleteById 입장 id:"+ id);
+        repo.deleteById(id);
+    }
+    @PutMapping("/{id}")
+    public HashMap<String, String> update(@PathVariable String id, @RequestBody GroupDTO dto){
+        System.out.println("id");
+        HashMap<String, String> map = new HashMap<>();
+        Group entity = repo.findById(Long.parseLong(id)).get();
+        entity.setGroupname(dto.getGroupname());
+        entity.setGroupintro(dto.getGroupintro());
+        entity.setGroupleader(dto.getGroupleader());
+        repo.save(entity);
+        map.put("result", "SUCCESS");
+        return map;
     }
 }

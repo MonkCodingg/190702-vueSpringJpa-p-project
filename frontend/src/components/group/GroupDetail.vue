@@ -7,30 +7,37 @@
             <h2 class="section-heading mb-4">
                 Woon Group Detail
             </h2>
-            <table class="table">
+            <div class="border-light p-5">
+                <table class="table">
                 
-                <tbody>
-                    <tr>
-                    <th scope="row">Group Name</th>
-                    <td>bit190603</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                        <th scope="row">Group no</th>
+                        <td>{{this.$store.state.groupno}}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Group Name</th>
+                        <td>{{this.$store.state.groupname}}</td>
+                        </tr>
 
-                    <tr>
-                    <th scope="row">Group Introduce</th>
-                    <td>비트캠프 서울시 뉴딜 일자리 자바스크립트 프레임위크 과정</td>
-                    </tr>
+                        <tr>
+                        <th scope="row">Group Introduce</th>
+                        <td>{{this.$store.state.groupintro}}</td>
+                        </tr>
 
-                    <tr>
-                    <th scope="row">Group Leader</th>
-                    <td>홍 길 동</td>
-                    </tr>
+                        <tr>
+                        <th scope="row">Group Leader</th>
+                        <td>{{this.$store.state.groupleader}}</td>
+                        </tr>
 
-                    <tr>
-                    <th scope="row">Group Member List</th>
-                    <td>abc@bit.com, ee@bit.com, camp@bitcamp.com, gogo@bitcamp.com</td>
-                    </tr>
-                </tbody>
-            </table>    
+                    </tbody>
+                </table>
+                <button @click='modify()'>update</button>
+                <button @click='delet()'>delete</button>
+                
+
+            </div>
+                
         </section>
         </div>
         <Footer></Footer>
@@ -40,7 +47,8 @@
 <script>
 import Footer from '@/components/common/Footer.vue'
 import Navbar from '@/components/common/Navbar.vue'
-
+import axios from 'axios'
+import {store} from '../../store'
 export default {
     name: 'groupDetail',
     components: {
@@ -50,8 +58,31 @@ export default {
     },
     data () {
         return {
-
+            context: 'http://localhost:9000/groups',
+            groupno: this.$store.state.groupno
         }
+    },
+    methods: {
+        delet(){
+            let cnf = confirm("그룹을 삭제하시겠습니까?");
+            if(cnf){
+                axios.delete(`${this.context}/${this.groupno}`)
+                .then(res=>{
+                    alert(`SUCCESS`)
+                    this.$router.push('/group-list')
+                })
+                .catch(e=>{
+                    alert('ERROR')
+                })
+            }
+            
+            
+
+        },
+        modify(){
+            this.$router.push('/group-modify')
+        }
+
     }
 }
 </script>

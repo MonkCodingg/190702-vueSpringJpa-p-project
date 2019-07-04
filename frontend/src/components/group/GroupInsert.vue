@@ -4,6 +4,7 @@
         
         <!-- Default form subscription -->
         <form class="text-center border border-light p-5" @submit.prevent="save">
+            <!-- @submit.prevent="save" 동기처리 거부, 동기로 처리하겠다 -->
             <p class="h4 mb-4">Add Group</p>
             <p>당신의 그룹을 만들어 보세요 </p>
             <!-- table -->
@@ -73,8 +74,10 @@ export default {
             axios.post(`${this.context}`, JSON.stringify(data), {headers: headers})
             .then(res=>{
                 alert(`SUCCESS: ${res.data.result}`)
+                this.$router.push("/")
             }).catch(e=>{
                 alert('ERROR')
+                this.$router.link(-1);
             })
         },
     }    

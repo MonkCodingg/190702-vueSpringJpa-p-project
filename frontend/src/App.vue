@@ -6,6 +6,11 @@
 </template>
 
 <script>
+addEventListener("load", function(){
+  setTimeout(()=>{
+    window.scrollTo(0,1);
+  }, 0);
+}, false);
 export default {
   name: 'App'
 }
@@ -19,4 +24,5 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+#app{height:100%;}
 </style>
