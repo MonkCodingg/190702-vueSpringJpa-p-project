@@ -13,7 +13,7 @@
                 <tbody>
                     <tr>
                     <th scope="row">Group Name</th>
-                    <td><input type="text" v-model="groupname"> </td>
+                    <td><input type="text" v-model="groupname" > </td>
                     </tr>
 
                     <tr>

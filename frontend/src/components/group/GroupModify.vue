@@ -7,13 +7,13 @@
             <h2 class="section-heading mb-4">
                 Woon Group Modify
             </h2>
-            <form class="text-center border border-light p-5">
+            <form class=" border border-light p-5">
                 <table class="table">
                 
                     <tbody>
 <tr>
                         <th scope="row">Group No</th>
-                        <td><input type="text" v-model='groupno'></td>
+                        <td>{{this.$store.state.groupno}}</td>
                         </tr>
 
                         <tr>
@@ -33,7 +33,7 @@
 
                     </tbody>
                 </table>
-                <button @click='modify()'>update</button>
+                <button class="btn btn-info" @click='modify()'>update</button>
             </form>
                 
         </section>

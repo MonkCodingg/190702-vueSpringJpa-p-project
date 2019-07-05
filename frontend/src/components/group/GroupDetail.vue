@@ -32,8 +32,9 @@
 
                     </tbody>
                 </table>
-                <button @click='modify()'>update</button>
-                <button @click='delet()'>delete</button>
+            
+                <button type="button" class="btn btn-info" @click='modify()'>update</button>
+                <button type="button" class="btn btn-danger" @click='delet()'>delete</button>
                 
 
             </div>
