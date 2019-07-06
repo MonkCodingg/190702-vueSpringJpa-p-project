@@ -2,17 +2,16 @@
     <div class="container-fluid">
         <Navbar></Navbar>
         <div class="container">
-        <section id="table-head-options">
-            <p></p>
-            <h2 class="section-heading mb-4">
-                Woon Group Detail
-            </h2>
-            <div class="border-light p-5">
-                <table class="table">
-                
+            <div class="text-center p-5" >
+            <!-- @submit.prevent="save" 동기처리 거부, 비동기로 처리하겠다 -->
+                <p class="h2 mb-4">Woon Group Detail</p>
+                <p>당신의 그룹 상세정보를 확인하세요. </p>
+                <!-- table -->
+                <table class="table text-left">
+                    
                     <tbody>
                         <tr>
-                        <th scope="row">Group no</th>
+                        <th scope="row">Group No</th>
                         <td>{{this.$store.state.groupno}}</td>
                         </tr>
                         <tr>
@@ -31,16 +30,17 @@
                         </tr>
 
                     </tbody>
-                </table>
-            
-                <button type="button" class="btn btn-info" @click='modify()'>update</button>
-                <button type="button" class="btn btn-danger" @click='delet()'>delete</button>
+                </table>  
                 
-
+                
             </div>
-                
-        </section>
+            <p class="text-center">
+                    <button type="button" class="btn btn-info" @click='modify()'>modify</button>
+                    <button type="button" class="btn btn-danger" @click='delet()'>delete</button>
+            </p>
         </div>
+        
+        
         <Footer></Footer>
     
     </div>    

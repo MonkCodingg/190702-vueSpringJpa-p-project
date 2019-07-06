@@ -45,7 +45,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+  <div class="footer-copyright text-center py-3">© 2019 전승환 :
     <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> </a> -->woon.com
   </div>
   <!-- Copyright -->

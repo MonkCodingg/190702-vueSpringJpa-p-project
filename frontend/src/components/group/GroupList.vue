@@ -1,49 +1,51 @@
 <template>
-<div class="container">
-  <!-- Content here -->
-  <section id="table-head-options">
-      <p></p>
-        <h2 class="section-heading mb-4">
-            Woon Group List
-        </h2>
-        <p class="text-right">
-            <router-link to="/group-insert">
-                <button type="button" class="btn btn-primary">Add Group</button>
-            </router-link>
-            
-        </p>
-      
-    <table class="table table-hover">
-        <thead class="black white-text">
-            <tr>
-            <th scope="col">Group No.</th>
-            <th scope="col">Group Name</th>
-            <th scope="col">Group Introduce</th>
-            <th scope="col">Group Leader</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="item in list" v-bind:key="item.groupno"  @click="groupDetail(item)">
-                <th scope="row">{{item.groupno}}</th>
-                <td>{{item.groupname}}</td>
-                <td>{{item.groupintro}}</td>
-                <td>{{item.groupleader}}</td>
-            </tr>
-            
-            
-        </tbody>
-        
-    </table>
-    
-  </section>
-  
-</div>    
+    <div class="container-fluid">
+        <Navbar></Navbar>
+            <div class="container p-5">
+                <!-- Content here -->
+                <section id="table-head-options">
+                    <p></p>
+                    <h2 class="section-heading mb-4 text-center">
+                        Woon Group List
+                    </h2>
+                    <p class="text-right">
+                        <router-link to="/group-insert">
+                            <button type="button" class="btn btn-primary">Create Group</button>
+                        </router-link>
+                    </p>
+                    
+                    <table class="table table-hover">
+                        <thead class="black white-text">
+                            <tr>
+                            <th scope="col">Group No.</th>
+                            <th scope="col">Group Name</th>
+                            <th scope="col">Group Introduce</th>
+                            <th scope="col">Group Leader</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item,index) in list" v-bind:key="index" @click="groupDetail(item)">
+                            <!-- v-for 첫번째 인자 list 객체, 2번째 인자는 index값 0 1 2 3 4..로 증가-->
+                                <th scope="row">{{index+1}}</th>
+                                <!-- index는 0부터 시작하므로 +1-->
+                                <td>{{item.groupname}}</td>
+                                <td>{{item.groupintro}}</td>
+                                <td>{{item.groupleader}}</td>
+                            </tr>  
+                        </tbody>    
+                    </table>   
+                </section> 
+            </div> 
+        <Footer></Footer>
+    </div>
 </template>
 <script>
+import Footer from '@/components/common/Footer.vue'
+import Navbar from '@/components/common/Navbar.vue'
 import axios from 'axios'
 import {store} from '../../store'
 export default {
-    
+    name: 'grouplist',
     data(){
         return {
            context: 'http://localhost:9000/groups',
@@ -51,7 +53,8 @@ export default {
         }
     },
     components: {
-       
+        Navbar,
+        Footer,
     },
     methods: {
         groupDetail(item){
@@ -59,7 +62,7 @@ export default {
             store.state.groupname = item.groupname;
             store.state.groupintro = item.groupintro;
             store.state.groupleader = item.groupleader;
-            alert("groupDetail 함수 클릭 \n 그룹이름은 :"+store.state.groupname);
+            
             this.$router.push('/group-detail')
         },
         count(){
@@ -69,8 +72,7 @@ export default {
             }
             axios.get(`${this.context}/count`)
             .then(res=>{
-                alert(`SUCCESS: ${res.data}`)
-                
+//                alert(`SUCCESS: ${res.data}`)   
             })
             .catch(e=>{
                 alert('ERROR')

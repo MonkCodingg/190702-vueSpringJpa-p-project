@@ -1,43 +1,41 @@
 <template>
     <div class="container-fluid">
         <Navbar></Navbar>
-        <div class="container">
-        <section id="table-head-options">
-            <p></p>
-            <h2 class="section-heading mb-4">
-                Woon Group Modify
-            </h2>
-            <form class=" border border-light p-5">
-                <table class="table">
+        <form class="text-center p-5" @submit.prevent>
+            <!-- @submit.prevent="save" 동기처리 거부, 비동기로 처리하겠다 -->
+            <p class="h2 mb-4">Woon Group Modify</p>
+            <p>당신의 그룹을 수정해 보세요. </p>
+            <!-- table -->
+            <table class="table text-left">
                 
-                    <tbody>
-<tr>
-                        <th scope="row">Group No</th>
-                        <td>{{this.$store.state.groupno}}</td>
-                        </tr>
+                <tbody>
+                    <tr>
+                    <th scope="row">Group No</th>
+                    <td>{{this.$store.state.groupno}}</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Group Name</th>
+                    <td><input type="text" class="form-control" v-model="groupname" > </td>
+                    </tr>
 
-                        <tr>
-                        <th scope="row">Group Name</th>
-                        <td><input type="text" v-model='groupname'></td>
-                        </tr>
+                    <tr>
+                    <th scope="row">Group Introduce</th>
+                    <td><textarea cols="50" rows="3" class="md-textarea form-control" v-model="groupintro"></textarea></td>
+                    </tr>
 
-                        <tr>
-                        <th scope="row">Group Introduce</th>
-                        <td><textarea name="" id="" cols="50" rows="3" v-model='groupintro'></textarea></td>
-                        </tr>
+                    <tr>
+                    <th scope="row">Group Leader</th>
+                    <td><input type="text" class="form-control" v-model="groupleader"></td>
+                    </tr>
 
-                        <tr>
-                        <th scope="row">Group Leader</th>
-                        <td><input type="text" v-model='groupleader'></td>
-                        </tr>
+                </tbody>
+            </table>  
+            <!-- Sign in button -->
+            <button class="btn btn-info" @click='save()'>Save</button>
+            <button class="btn btn-light" @click='cancel()'>Cancel</button>
+            
+        </form>
 
-                    </tbody>
-                </table>
-                <button class="btn btn-info" @click='modify()'>update</button>
-            </form>
-                
-        </section>
-        </div>
         <Footer></Footer>
     </div>
 
@@ -65,7 +63,7 @@ export default {
         }
     },
     methods: {
-        modify(){
+        save(){
             let data ={
                 groupname: this.groupname,
                 groupintro: this.groupintro,
@@ -82,6 +80,9 @@ export default {
             .catch(e=>{
                 alert('ERROR')
             })
+        },
+        cancel(){
+            this.$router.push('/group-list');
         }
     }    
 }

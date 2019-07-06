@@ -46,7 +46,7 @@ public class GroupController {
 
     @PostMapping("")
     public HashMap<String, String> save(@RequestBody GroupDTO dto){
-        System.out.println("save 그룹 생성 진입");
+        System.out.println("Post save(dto) 입장");
         System.out.println("GROUP NAME: "+dto.getGroupname());
         System.out.println("GROUP LEADER: "+dto.getGroupleader());
         HashMap<String, String> map = new HashMap<>();
@@ -62,7 +62,7 @@ public class GroupController {
     }
     @GetMapping("/{id}")
     public GroupDTO findById(@PathVariable String id){
-        System.out.println("findById 들어온 아이디: " + id);
+        System.out.println("Get findById(groupno)입장. 들어온 groupno: " + id);
         Group entity = repo.findById(Long.parseLong(id)).orElseThrow(EntityNotFoundException::new);
         System.out.println(">>>>" + entity.toString());
         GroupDTO dto = modelMapper.map(entity, GroupDTO.class);
@@ -70,7 +70,7 @@ public class GroupController {
     }
     @GetMapping("")
     public List<GroupDTO> findAll(){
-        System.out.println("findAll 입장");
+        System.out.println("Get findAll() 입장");
         Iterable<Group> entities = repo.findAll();
         List<GroupDTO> list = new ArrayList<>();
         for(Group g : entities){
@@ -82,12 +82,12 @@ public class GroupController {
     }
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id){
-        System.out.println("deleteById 입장 id:"+ id);
+        System.out.println("deleteById 입장. groupno:"+ id);
         repo.deleteById(id);
     }
     @PutMapping("/{id}")
     public HashMap<String, String> update(@PathVariable String id, @RequestBody GroupDTO dto){
-        System.out.println("id");
+        System.out.println("deleteById 입장. groupno:"+ id);
         HashMap<String, String> map = new HashMap<>();
         Group entity = repo.findById(Long.parseLong(id)).get();
         entity.setGroupname(dto.getGroupname());

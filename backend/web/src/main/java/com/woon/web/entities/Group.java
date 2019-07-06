@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -28,11 +29,14 @@ public class Group implements Serializable {
     
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long groupno;
-    @Column(name="groupname")private String groupname;
-    @Column(name="groupintro")private String groupintro;
-    @Column(name="groupleader")private String groupleader;
+    @Column(name="groupname")
+    private String groupname;
+    @Column(name="groupintro")
+    private String groupintro;
+    @Column(name="groupleader")
+    private String groupleader;
     
     @Override
     public String toString(){
