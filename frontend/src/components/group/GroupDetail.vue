@@ -70,20 +70,22 @@ export default {
                 axios.delete(`${this.context}/${this.groupno}`)
                 .then(res=>{
                     alert(`SUCCESS`)
+                    // store에 저장된 정보 삭제하기
+                    this.$store.state.groupno='';
+                    this.$store.state.groupname='';
+                    this.$store.state.groupintro='';
+                    this.$store.state.groupleader='';
                     this.$router.push('/group-list')
+                    console.log(this.$store.state);
                 })
                 .catch(e=>{
                     alert('ERROR')
                 })
             }
-            
-            
-
         },
         modify(){
             this.$router.push('/group-modify')
         }
-
     }
 }
 </script>
