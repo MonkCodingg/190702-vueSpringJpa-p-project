@@ -1,15 +1,13 @@
 <template>
     <div class="container-fluid">
     <Navbar></Navbar>
-        
         <!-- Default form subscription -->
         <form class="text-center border border-light p-5" @submit.prevent="save">
             <!-- @submit.prevent="save" 동기처리 거부, 비동기로 처리하겠다 -->
             <p class="h2 mb-4">Add Group</p>
             <p>당신의 그룹을 만들어 보세요 </p>
             <!-- table -->
-            <table class="table text-left">
-                
+            <table class="table text-left">    
                 <tbody>
                     <tr>
                     <th scope="row">Group Name</th>
@@ -57,12 +55,9 @@ export default {
     components: {
         Navbar,
         Footer,
-        
     },
     methods: {
-
         save(){
-            alert("create 함수 진입")
             let data = {
                 groupname: this.groupname, //key : 현재 입력값
                 groupintro: this.groupintro,

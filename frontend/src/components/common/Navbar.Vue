@@ -27,22 +27,6 @@
                 <a class="nav-link" >Group List </a>
             </router-link>
         </li>
-        <!-- <li class="nav-item">
-            <router-link to="/group-detail">
-                <a class="nav-link" >Group Detail </a>
-            </router-link>
-        </li>
-        <li class="nav-item">
-            <router-link to="/group-modify">
-                <a class="nav-link">Group Modify </a>
-            </router-link>
-        </li> 
-        <li class="nav-item">
-            <router-link to="/group-insert">
-                <a class="nav-link">Group Insert </a>
-            </router-link>
-        </li> -->
-
         </ul>
         
     </div>

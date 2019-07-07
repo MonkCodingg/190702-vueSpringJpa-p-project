@@ -1,7 +1,6 @@
 package com.woon.web.repositories;
 
 import com.woon.web.entities.Group;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

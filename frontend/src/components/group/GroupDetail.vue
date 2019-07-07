@@ -8,7 +8,6 @@
                 <p>당신의 그룹 상세정보를 확인하세요. </p>
                 <!-- table -->
                 <table class="table text-left">
-                    
                     <tbody>
                         <tr>
                         <th scope="row">Group No</th>
@@ -30,19 +29,14 @@
                         </tr>
 
                     </tbody>
-                </table>  
-                
-                
+                </table>          
             </div>
             <p class="text-center">
-                    <button type="button" class="btn btn-info" @click='modify()'>modify</button>
-                    <button type="button" class="btn btn-danger" @click='delet()'>delete</button>
+                <button type="button" class="btn btn-info" @click='modify()'>modify</button>
+                <button type="button" class="btn btn-danger" @click='delet()'>delete</button>
             </p>
-        </div>
-        
-        
+        </div>  
         <Footer></Footer>
-    
     </div>    
 </template>
 <script>
@@ -54,8 +48,7 @@ export default {
     name: 'groupDetail',
     components: {
         Navbar,
-        Footer,
-        
+        Footer,   
     },
     data () {
         return {
@@ -89,7 +82,6 @@ export default {
     }
 }
 </script>
-
 <style scoped>
 
 </style>

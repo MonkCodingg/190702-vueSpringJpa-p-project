@@ -14,8 +14,6 @@ export default new Router({
     {path: '/group-list', name: 'group-list', component: GroupList},
     {path: '/group-detail', name: 'group-detail', component: GroupDetail},
     {path: '/group-modify', name: 'group-modify', component: GroupModify},
-    {path: '/group-insert', name: 'group-insert', component: GroupInsert},
-    
-    
+    {path: '/group-insert', name: 'group-insert', component: GroupInsert}, 
   ]
 })

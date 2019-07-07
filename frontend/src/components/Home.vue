@@ -1,14 +1,41 @@
 <template>
-  <div class="container-fluid">
-    <Navbar></Navbar>
+  <!-- Jumbotron -->
+<div class="container-fluid">
+<Navbar></Navbar>
+<!-- Jumbotron -->
+<div class="jumbotron text-center">
+
+  <!-- Title -->
+  <h2 class="card-title h2">개인 프로젝트</h2>
+  <!-- Subtitle -->
+  <p class="blue-text my-4 font-weight-bold">Group에 대한 CRUD 구현</p>
+
+  <!-- Grid row -->
+  <div class="row d-flex justify-content-center">
+
+    <!-- Grid column -->
+    <div class="col-xl-7 pb-2">
+
       
-      <figure class="figure ">
-        <img src="https://i.pinimg.com/originals/2b/aa/83/2baa839c9e22ceef0e75570c028b3eeb.jpg" class="figure-img img-fluid z-depth-1 text-center"
-          alt="..." >
-        <figcaption class="figure-caption"></figcaption>
-    </figure>
-    <Footer></Footer>
+
+    </div>
+    <!-- Grid column -->
+
   </div>
+  <!-- Grid row -->
+
+  <hr class="my-4">
+
+  <div class="pt-2">
+    <p class="card-text">Vue.js, Spring Boot, JPA, H2  </p>
+  </div>
+
+</div>
+<!-- Jumbotron -->
+<Footer></Footer>
+
+<!-- Jumbotron -->
+</div>
 </template>
 
 <script>
@@ -25,7 +52,7 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      
     }
   }
 }
@@ -33,22 +60,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-img {
-  width: fit-content;
-  
-}
+
 </style>

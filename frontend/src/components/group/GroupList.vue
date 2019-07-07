@@ -72,15 +72,13 @@ export default {
             }
             axios.get(`${this.context}/count`)
             .then(res=>{
-//                alert(`SUCCESS: ${res.data}`)   
+                alert(`SUCCESS: ${res.data}`)   
             })
             .catch(e=>{
                 alert('ERROR')
             })
-        },
-        
+        },   
     },
-
     created:function(){
         
         axios.get(`${this.context}`).then((res)=>{
